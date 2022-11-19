@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Trabajo Práctico Integrador Parte II - Comprar Tickets</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    </head>
+    <body>
+
+        <header>
+            <!--Navbar-->
+            <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+              <div class="container">
+                        <a class="navbar-brand" href="index.html">
+                        <img src="img/codoacodo-min.png" style="max-width: 100px;" alt="Codo a Codo Logo">Conf Bs As</a>
+                    <div class="justify-content-end">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">La Conferencia</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Los Oradores</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">El Lugar y La Fecha</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Conviertete en Orador</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color: #25bd48;" href="#" id="boton1">Comprar Tickets</a>
+                            </li>
+                        </ul>
+                    </div>
+              </div>
+            </nav>
+        </header>
+        <br>
+        <!--Elementos del Main-->
+        <main>
+            <!--Cards detalle de descuentos según categoría-->
+            <section style="display: inline;">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-sm-4 order-12">
+                            <div class="card border-primary rounded-0" style="width: 15rem; left: 195px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">Estudiante</h4>
+                                    <p class="card-text">Tienen un descuento</p>
+                                    <h5 class="card-text">80%</h5>
+                                    <p class="card-subtitle mb-2 text-muted">* presentar documentación</p> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="card border-success rounded-0" style="width: 15rem; left: 60px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">Trainee</h4>
+                                    <p class="card-text">Tienen un descuento</p>
+                                    <h5 class="card-text">50%</h5>
+                                    <p class="card-subtitle mb-2 text-muted">* presentar documentación</p>            
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="card border-warning rounded-0" style="width: 15rem; right: 75px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">Junior</h4>
+                                    <p class="card-text">Tienen un descuento</p>
+                                    <h5 class="card-text">15%</h5>
+                                    <p class="card-subtitle mb-2 text-muted">* presentar documentación</p>             
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <br>
+
+                <!--Título Venta-->
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>VENTA</h6>
+                            <h1>VALOR DE TICKET $200</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Formulario de compra y selección categorías-->
+            <form>
+                <div class="container center" style="width: 47rem; right: 50px;">
+                    <div class="row gx-2">
+                        <div class="col-md mb-3">
+                            <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="col-md mb-3">
+                            <input type="text" class="form-control" placeholder="Apellido" id="apellido" name="apellido" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-3">
+                            <input type="email" class="form-control" placeholder="Email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="row gx-2">
+                        <div class="col-md mb-3">
+                            <label for="cantidadTickets" class="form-label">Cantidad</label>
+                            <input id="cant" type="number" class="form-control" placeholder="Cantidad" name="cant">
+                        </div>
+                        <div class="col-md mb-3">
+                            <label for="categSelect" class="form-label">Categoría</label>
+                            <select class="form-select" aria-label="Categoría" id="categSelect" name="categ">
+                                <option value="" selected>-- Seleccione --</option>
+                                <option value="0">Sin Categoría</option>
+                                <option value="1">Estudiante</option>
+                                <option value="2">Trainee</option>
+                                <option value="3">Junior</option>                            
+                            </select>
+                        </div>
+                    </div>
+                    <div class="alert alert-primary mt-2 mb-4" role="alert">
+                        Total a Pagar: $ <span id="totalPago" class="align-middle"></span>
+                    </div>
+                    <div class="row gx-2">
+                        <div class="col-md mb-3">
+                            <button type="reset" class="btn btn-success col-12 mt-3" style="background-color: #25bd48; border: #25bd48;" id="btnBorrar" onclick="reset()">Borrar</button>
+                        </div>   
+                        <div class="col-md mb-3">
+                            <button type="button" class="btn btn-success col-12 mt-3" style="background-color: #25bd48; border: #25bd48;" id="btnResumen" value="Calcular" onclick="Calcular()">Resumen</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+        </main>
+        <br>
+
+            <!--Elementos del Footer-->
+            <footer class="text-center text-white bg-dark" style="margin-top: auto;">
+                <article class="mt-8">
+                    <div class="row align-items-center justify-content-center p-4">
+                        <div class="col-lg-2">
+                            <a href="#" class="text-white text-decoration-none">Preguntas frecuentes</a>
+                        </div>
+                        <div class="col-lg-1">
+                            <a href="#" class="text-white text-decoration-none">Contáctanos</a>
+                        </div>
+                        <div class="col-lg-1">
+                            <a href="#" class="text-white text-decoration-none">Prensa</a>
+                        </div>
+                        <div class="col-lg-1">
+                            <a href="#" class="text-white text-decoration-none">Conferencias</a>
+                        </div>
+                        <div class="col-lg-1">
+                            <a href="#" class="text-white text-decoration-none">Términos y condiciones</a>
+                        </div>
+                        <div class="col-lg-1">
+                            <a href="#" class="text-white text-decoration-none">Privacidad</a>
+                        </div>
+                        <div class="col-lg-1">
+                            <a href="#" class="text-white text-decoration-none">Estudiantes</a>
+                        </div>
+                    </div>
+                </article>
+            </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="js/calculotickets.js"></script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+/*   */
+
+.navbar-brand img{max-width: 100px;}
+
+#boton1{color:#25bd48}
+
+
+
+/* Estilo de los titulos */
+
+
+/* Estilo de carousel  */
+
+.carousel-item
+{ 
+    opacity: 0.8;
+    background-color: rgba(0, 0, 0); 
+    background-blend-mode: darken; 
+    background-size: cover;
+    background-position: center center;     
+}
+
+.col
+{
+        width: 100px;
+        height: 500px;
+        margin: 80px;
+        padding: auto;
+}
+
